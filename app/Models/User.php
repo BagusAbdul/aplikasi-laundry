@@ -29,4 +29,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    protected $fillable = ['name', 'email', 'password', 'role_id', 'outlet_id'];
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+    public function outlet() {
+        return $this->belongsTo(Outlet::class);
+    }
+    public function transaksis() {
+        return $this->hasMany(Transaksi::class);
+    }
+
 }
