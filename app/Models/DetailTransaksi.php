@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DetailTransaksi extends Model
 {
@@ -11,8 +12,20 @@ class DetailTransaksi extends Model
     /** @use HasFactory<\Database\Factories\DetailTransaksiFactory> */
     use HasFactory;
 
-    protected $fillable = ['transaksi_id', 'paket_id', 'qty', 'subtotal'];
+    protected $fillable = [
+    'transaksi_id',
+    'paket_id',
+    'qty',
+    'subtotal'
+    // 'keterangan'
+    ];
 
-public function transaksi() { return $this->belongsTo(Transaksi::class); }
-public function paket() { return $this->belongsTo(Paket::class); }
+    public function transaksi()
+        {
+        return $this->belongsTo(Transaksi::class);
+        }
+    public function paket(): BelongsTo
+        {
+            return $this->belongsTo(Paket::class, 'paket_id');
+        }
 }

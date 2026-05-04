@@ -19,6 +19,9 @@ Schema::create('transaksi', function (Blueprint $table) {
     $table->dateTime('tanggal');
     $table->dateTime('batas_waktu');
     $table->dateTime('tanggal_bayar')->nullable();
+    $table->integer('biaya_tambahan');
+    $table->double('diskon');
+    $table->integer('pajak');
     $table->enum('status', ['baru', 'proses', 'selesai', 'diambil'])->default('baru');
     $table->enum('dibayar', ['dibayar', 'belum_dibayar'])->default('belum_dibayar');
     $table->foreignId('user_id')->constrained('users')->onDelete('cascade');

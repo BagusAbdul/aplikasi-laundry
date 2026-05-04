@@ -11,6 +11,8 @@ class Outlet extends Model
     /** @use HasFactory<\Database\Factories\OutletFactory> */
     use HasFactory;
 
+    protected $fillable = ['nama_outlet', 'alamat', 'telepon'];
+
 public function users() {
     return $this->hasMany(User::class);
 }
