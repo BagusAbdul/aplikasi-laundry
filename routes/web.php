@@ -37,4 +37,5 @@ Route::middleware(['auth', 'role:owner,admin'])->prefix('owner')->name('owner.')
         return view('dashboard.owner');
     })->name('dashboard');
     Route::get('/laporan', [App\Http\Controllers\Owner\LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/pdf', [App\Http\Controllers\Owner\LaporanController::class, 'exportPdf'])->name('laporan.pdf');
 });

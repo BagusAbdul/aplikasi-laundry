@@ -19,9 +19,10 @@
                     Filter Laporan
                 </button>
                 @if($start_date && $end_date)
-                    <button onclick="window.print()" type="button" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-black transition">
+                <a href="{{ route('owner.laporan.pdf', ['start_date' => $start_date, 'end_date' => $end_date]) }}"
+                    class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition flex items-center gap-2">
                         Cetak Laporan
-                    </button>
+                </a>
                 @endif
             </div>
         </div>
